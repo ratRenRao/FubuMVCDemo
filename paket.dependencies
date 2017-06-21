@@ -1,0 +1,11 @@
+source https://www.nuget.org/api/v2
+
+nuget FubuCore 2.0.1.321
+nuget FubuMVC.Core 3.0.2
+nuget nlog
+nuget Structuremap 4.4.3
+nuget Newtonsoft.json 9.0.1
+nuget htmltags 2.1.0.183
+nuget FubuMVC.LightningQueues
+nuget Xunit
+nuget Shouldly
