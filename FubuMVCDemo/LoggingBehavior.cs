@@ -9,7 +9,7 @@ using FubuMVC.Core.Http;
 
 namespace FubuMVCDemo
 {
-    class LoggingBehavior : WrappingBehavior
+    public class LoggingBehavior : WrappingBehavior
     {
         private readonly ICurrentChain _chain;
         private readonly ILogger _logger;
@@ -18,6 +18,12 @@ namespace FubuMVCDemo
         {
             _chain = chain;
             _logger = logger;
+        }
+
+        protected override void invoke(Action action)
+        {
+            _logger.Debug($"Entered LogginBehavior");
+            action();
         }
     }
 }
