@@ -1,4 +1,4 @@
-source https://www.nuget.org/api/v2
+source https://nuget.org/api/v2
 
 nuget FubuCore 2.0.1.321
 nuget FubuMVC.Core 3.0.2
@@ -9,3 +9,9 @@ nuget htmltags 2.1.0.183
 nuget FubuMVC.LightningQueues
 nuget Xunit
 nuget Shouldly
+nuget FubuMVC.RavenDb 3.1.0.50747
+nuget RavenDB.Client == 2.5.2750
+nuget RavenDB.Database 2.5.2750
+nuget RavenDB.Embedded 2.5.2750
+nuget RavenDB.Server 2.5.2750
+nuget Microsoft.CompilerServices.AsyncTargetingPack 1.0.1

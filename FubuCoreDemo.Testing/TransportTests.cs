@@ -8,7 +8,7 @@ using Xunit;
 
 namespace FubuCoreDemo.Testing
 {
-    public class FubuTests
+    public class TransportTests
     {
         [Fact]
         public async Task messages_can_be_sent_and_received()
@@ -37,6 +37,8 @@ namespace FubuCoreDemo.Testing
             var count = runtime.CurrentContainer.GetAllInstances<IFakeService>().Count();
 
             count.ShouldBe(1);
+
+            runtime.Dispose();
         }
 
         [Fact]

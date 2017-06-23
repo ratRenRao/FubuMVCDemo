@@ -1,0 +1,64 @@
+﻿html, body, #pageContent, .content {
+    height: 100%;
+}
+
+.content {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+.content h1 {
+    flex: 2 0 100%;
+    text-align: center;
+}
+
+.listContainer {
+    padding-top: 50px;
+    position: relative;
+    min-width: 40%;
+}
+
+.listContainer.react::after {
+    background-image: url("../Images/react.png");
+}
+.listContainer.server::after {
+    background-image: url("../Images/server.png"); /* W3C */
+}
+.listContainer::after {
+    content: "";
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+ul {
+    list-style: none;
+    padding: 2px;
+}
+
+li {
+    border-top: solid #b3d9ff 10px;
+    box-shadow: 0 0 2px 1px #000;
+    margin: 10px;
+    padding: 3px;
+    background-color: #fff;
+    min-height: 28px;
+}
+li.complete {
+    border-top-color: green;
+}
+li>img {
+    cursor: pointer;
+    height: 30px;
+    float: right;
+}
+li>img.check {
+    height: 20px;
+    padding-top: 4px;
+}
