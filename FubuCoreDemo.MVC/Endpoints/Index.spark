@@ -1,0 +1,31 @@
+﻿<viewdata model="FubuMVCTODO.Home.HomeViewModel" />
+
+
+<h1>!{ Model.Text }</h1>
+
+<div class="content">
+
+    <div id="todoForm" class="listContainer server">
+        <form action="~/home/todo/" method="post">
+            <input id="text" name="Text" placeholder="+todo"></input>
+            <input id="isComplete" name="IsComplete" type="checkbox"></input>
+            <button id="addNewItem" value="submit">Add</button>
+        </form>
+
+        <ul>
+            <li each="var item in Model.Items">${item.Text}
+        
+                ${item.IsComplete}
+                <img onClick="complete(item)" src="../Images/check.png" class="check" />
+                <img onClick="delete(item)" src="../Images/trash.png" />
+            </li>
+        </ul>
+
+        <form action="~/home/todo/clear" method="post">
+            <button id="clearAll" value="submit">Clear All Items</button>
+        </form>
+    </div>
+
+    <div id="flexReact" class="listContainer react"></div>
+    <script type="text/javascript" src="/Endpoints/Home/Todo.react.js"></script>
+</div>

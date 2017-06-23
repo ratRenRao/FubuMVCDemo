@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace FubuMVCTODO.Todo
+namespace FubuCoreDemo.MVC.ViewModels
 {
     public class DeleteTodoItemResponse
     {

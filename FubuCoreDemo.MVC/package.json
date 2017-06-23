@@ -1,0 +1,11 @@
+{
+    "name": "my-package",
+    "version": "1.0.0",
+        "devDependencies": {
+        "babel-cli": "^6.0.0"
+     },
+    "babel": {
+        "plugins": ["transform-react-jsx"],
+        "ignore": []
+    }
+}

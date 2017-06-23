@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using FubuMVCTODO.Domain;
+using FubuCoreDemo.MVC.Entities;
 
-namespace FubuMVCTODO
+namespace FubuCoreDemo.MVC.ViewModels
 {
     public class ListTodoItemsViewModel
     {

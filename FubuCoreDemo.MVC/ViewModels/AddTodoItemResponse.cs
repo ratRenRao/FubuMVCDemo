@@ -1,6 +1,6 @@
-﻿using FubuMVCTODO.Domain;
+﻿using FubuCoreDemo.MVC.Entities;
 
-namespace FubuMVCTODO.Todo
+namespace FubuCoreDemo.MVC.ViewModels
 {
     public class AddTodoItemResponse
     {
