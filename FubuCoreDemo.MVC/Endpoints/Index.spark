@@ -1,4 +1,4 @@
-﻿<viewdata model="FubuMVCTODO.Home.HomeViewModel" />
+﻿<viewdata model="FubuCoreDemo.MVC.Endpoints.HomeViewModel" />
 
 
 <h1>!{ Model.Text }</h1>

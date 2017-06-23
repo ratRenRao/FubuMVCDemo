@@ -6,3 +6,5 @@ htmltags
 FubuMVC.LightningQueues
 Microsoft.CompilerServices.AsyncTargetingPack
 FubuMVC.RavenDb
+spark
+FubuMVC.Spark

@@ -4,8 +4,6 @@ using FubuCoreDemo.MVC.Entities;
 using FubuCoreDemo.MVC.ViewModels;
 using Raven.Client;
 
-//using FubuMVCTODO.ViewModels;
-
 namespace FubuCoreDemo.MVC.Endpoints
 {
     public class TodoItemEndpoint

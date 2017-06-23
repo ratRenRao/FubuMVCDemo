@@ -18,6 +18,9 @@ NUGET
       RavenDB.Database (2.5.2750)
       RavenDB.Embedded (2.5.2750)
       StructureMap (>= 4.0)
+    FubuMVC.Spark (3.0.1.2355)
+      FubuMVC.Core (>= 3.0)
+      Spark (>= 1.7.5)
     HtmlTags (2.1.0.183)
     LightningDB (0.9.7) - framework: >= net46, >= netstandard13
       System.Collections.Concurrent (>= 4.0.12) - framework: >= netstandard13
@@ -145,9 +148,9 @@ NUGET
       System.Xml.XDocument (>= 4.0.11) - framework: >= netstandard10
     NLog (4.4.11)
     RavenDB.Client (2.5.2750)
-      Microsoft.CompilerServices.AsyncTargetingPack
+      Microsoft.CompilerServices.AsyncTargetingPack  - framework: net10, net11, net20, net30, net35, net40, net40-full
     RavenDB.Database (2.5.2750)
-      Microsoft.CompilerServices.AsyncTargetingPack
+      Microsoft.CompilerServices.AsyncTargetingPack  - framework: net10, net11, net20, net30, net35, net40, net40-full
       Microsoft.Data.Edm (>= 5.2)
       Microsoft.Data.OData (>= 5.2)
       Microsoft.WindowsAzure.ConfigurationManager (>= 1.8)
@@ -202,6 +205,7 @@ NUGET
       System.Reflection (>= 4.1) - framework: >= netstandard13
       System.Reflection.TypeExtensions (>= 4.1) - framework: >= netstandard13
       System.Threading.Timer (>= 4.0.1) - framework: >= netstandard13
+    Spark (1.8)
     StructureMap (4.4.3)
       NETStandard.Library (>= 1.6) - framework: netstandard13, >= netstandard15
       System.Collections.Concurrent (>= 4.0.12) - framework: netstandard13, >= netstandard15
