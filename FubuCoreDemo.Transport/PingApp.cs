@@ -1,4 +1,5 @@
-﻿using FubuMVC.Core.ServiceBus.Configuration;
+﻿using FubuMVC.Core;
+using FubuMVC.Core.ServiceBus.Configuration;
 using NLog;
 
 namespace FubuCoreDemo.Transport
@@ -8,13 +9,9 @@ namespace FubuCoreDemo.Transport
         public PingApp()
         {
             Policies.Global.Add<DemoPolicy>();
-            Policies.Local.Add<DemoPolicy>();
-
             Policies.Global.Add<OtherDemoPolicy>();
-            Policies.Local.Add<OtherDemoPolicy>();
 
-            Services.AddService<IFakeService, FakeService>();
-            Services.AddService<ILogger>(LogManager.GetCurrentClassLogger());
+            //Services.IncludeRegistry<DemoRegistry>();
 
             Channel(x => x.Ponger).AcceptsMessage<PingMessage>();
             Channel(x => x.Pinger).ReadIncoming();

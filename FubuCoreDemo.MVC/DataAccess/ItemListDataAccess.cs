@@ -6,11 +6,11 @@ using Raven.Client;
 
 namespace FubuCoreDemo.MVC.DataAccess
 {
-    public class TodoItemsDataAccess : ITodoItemsDataAccess
+    public class ItemListDataAccess : ITodoItemsDataAccess
     {
         private readonly IDocumentSession _documentSession;
 
-        public TodoItemsDataAccess(IDocumentSession documentSession)
+        public ItemListDataAccess(IDocumentSession documentSession)
         {
             _documentSession = documentSession;
         }
@@ -55,15 +55,5 @@ namespace FubuCoreDemo.MVC.DataAccess
                 _documentSession.Advanced.DocumentStore.DatabaseCommands.DeleteByIndex(indexDefinition.Name, new IndexQuery());
             }
         }
-    }
-
-    public interface ITodoItemsDataAccess
-    {
-        void RemoveItemFromList(TodoItem item);
-        void AddItemToList(TodoItem item);
-        List<TodoItem> LoadItems();
-        void SaveItem(TodoItem item);
-        TodoItem GetTodoItem(string id);
-        void ClearAll();
     }
 }

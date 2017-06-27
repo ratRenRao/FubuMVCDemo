@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using FubuMVC.Core;
+﻿using FubuMVC.Core;
 
 namespace FubuCoreDemo.MVC
 {
@@ -10,16 +6,25 @@ namespace FubuCoreDemo.MVC
     {
         public AppRegistry()
         {
-            //grab all classes that are suffixed with Endpoint and turn the public methods into actions
-            //This will occur by default, only placed in here for understanding
+            // Apply the MyLoggingPolicy to every
+            // chain in the system
+            Policies.Global.Add<DemoPolicy>();
+            // Apply the MyLoggingPolicy to only
+            // the chains discovered from the main application
+            // or a local extension
+            Policies.Local.Add<DemoPolicy>();
+
+            Policies.Global.Add<OtherDemoPolicy>();
+
+            //Use 'Endpoint' suffix convention, turning the public methods into actions
             Actions.IncludeClassesSuffixedWithEndpoint();
 
 
-            //Setup for the IOC (Inverson of Control) container using StructureMap (FubuMVCTODO only supports StructureMap)
+            //Setup for the IOC container using StructureMap
             Services.IncludeRegistry<CoreRegistry>();
 
 
-            //Enables the FubuMVCTODO Diagnostics - Very useful for troubleshooting your application (access via "localhost:port#/_fubu")
+            //Enables the FubuMVC.Core Diagnostics (access via "localhost:port#/_fubu")
             Features.Diagnostics.Enable(TraceLevel.Verbose);
         }
     }

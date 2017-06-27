@@ -48,6 +48,9 @@
     <Reference Include="FubuMVC.LightningQueues">
       <HintPath>..\packages\FubuMVC.LightningQueues\lib\net46\FubuMVC.LightningQueues.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.RavenDb">
+      <HintPath>..\packages\FubuMVC.RavenDb\lib\net46\FubuMVC.RavenDb.dll</HintPath>
+    </Reference>
     <Reference Include="FubuMVC.StructureMap">
       <HintPath>..\packages\FubuMVC.StructureMap.1.0.0.1401\lib\net40\FubuMVC.StructureMap.dll</HintPath>
     </Reference>
@@ -69,6 +72,15 @@
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.4.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client\lib\net45\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Embedded">
+      <HintPath>..\packages\RavenDB.Embedded\lib\net45\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client\lib\net45\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly">
       <HintPath>..\packages\Shouldly\lib\net451\Shouldly.dll</HintPath>
@@ -121,6 +133,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BuildChainTests.cs" />
+    <Compile Include="MVCTests\EndpointTests.cs" />
     <Compile Include="Registries\FirstRegistry.cs" />
     <Compile Include="TransportTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +143,10 @@
     <Compile Include="FakeObjects\TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FubuCoreDemo.MVC\FubuCoreDemo.MVC.csproj">
+      <Project>{507cc0cb-fedd-4a30-91d5-6062794795cf}</Project>
+      <Name>FubuCoreDemo.MVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FubuCoreDemo.Transport\FubuCoreDemo.Transport.csproj">
       <Project>{43c1c3b1-df26-43f6-948a-04edace11c44}</Project>
       <Name>FubuCoreDemo.Transport</Name>
@@ -142,7 +160,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MVCTests\" />
     <Folder Include="TransportTests\" />
   </ItemGroup>
   <Choose>
@@ -172,6 +189,26 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+      <ItemGroup>
+        <Reference Include="Castle.Core">
+          <HintPath>..\packages\Castle.Core\lib\net40\Castle.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="Castle.Core">
+          <HintPath>..\packages\Castle.Core\lib\net45\Castle.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
       <ItemGroup>
@@ -239,6 +276,17 @@
     </When>
   </Choose>
   <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="Moq">
+          <HintPath>..\packages\Moq\lib\net45\Moq.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
       <ItemGroup>
         <Reference Include="System.AppContext">
@@ -278,6 +326,62 @@
         <Reference Include="System.Collections.Immutable">
           <HintPath>..\packages\System.Collections.Immutable\lib\netstandard1.0\System.Collections.Immutable.dll</HintPath>
           <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.Collections.NonGeneric">
+          <HintPath>..\packages\System.Collections.NonGeneric\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.Collections.Specialized">
+          <HintPath>..\packages\System.Collections.Specialized\lib\net46\System.Collections.Specialized.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.Primitives">
+          <HintPath>..\packages\System.ComponentModel.Primitives\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.TypeConverter">
+          <HintPath>..\packages\System.ComponentModel.TypeConverter\lib\net45\System.ComponentModel.TypeConverter.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
@@ -357,6 +461,20 @@
       <ItemGroup>
         <Reference Include="System.Diagnostics.StackTrace">
           <HintPath>..\packages\System.Diagnostics.StackTrace\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.Diagnostics.TraceSource">
+          <HintPath>..\packages\System.Diagnostics.TraceSource\lib\net46\System.Diagnostics.TraceSource.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -464,6 +582,15 @@
           <Paket>True</Paket>
         </Reference>
         <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.Core">
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
@@ -895,6 +1022,23 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
       <ItemGroup>
         <Reference Include="System.Xml.Linq">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
+      <ItemGroup>
+        <Reference Include="System.Xml.XmlDocument">
+          <HintPath>..\packages\System.Xml.XmlDocument\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>

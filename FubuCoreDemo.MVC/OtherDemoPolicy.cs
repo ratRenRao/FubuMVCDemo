@@ -1,7 +1,8 @@
-﻿using FubuMVC.Core;
+﻿using FubuCoreDemo.Transport;
+using FubuMVC.Core;
 using FubuMVC.Core.Registration;
 
-namespace FubuCoreDemo.Transport
+namespace FubuCoreDemo.MVC
 {
     public class OtherDemoPolicy : IConfigurationAction
     {

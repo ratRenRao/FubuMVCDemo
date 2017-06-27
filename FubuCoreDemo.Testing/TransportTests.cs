@@ -63,20 +63,20 @@ namespace FubuCoreDemo.Testing
             stringTokens.Count().ShouldBe(2);
         }
 
-        [Fact]
-        public async Task localization_allows_location_specific_data()
-        {
-            var pinger = FubuRuntime.For<PingApp>();
-            var ponger = FubuRuntime.For<PongApp>();
+        //[Fact]
+        //public async Task localization_allows_location_specific_data()
+        //{
+        //    var pinger = FubuRuntime.For<PingApp>();
+        //    var ponger = FubuRuntime.For<PongApp>();
 
-            var bus = pinger.Get<IServiceBus>();
+        //    var bus = pinger.Get<IServiceBus>();
 
-            var pong = await bus.Request<PongMessage>(new PingMessage());
+        //    //var pong = await bus.Request<PongMessage>(new PingMessage());
 
-            pinger.Get<StopwatchBehavior>().Stopwatch.Elapsed.Seconds.ShouldNotBe(0);
+        //    //pinger.Get<StopwatchBehavior>().Stopwatch.Elapsed.Seconds.ShouldNotBe(0);
 
-            pinger.Dispose();
-            ponger.Dispose();
-        }
+        //    pinger.Dispose();
+        //    ponger.Dispose();
+        //}
     }
 }

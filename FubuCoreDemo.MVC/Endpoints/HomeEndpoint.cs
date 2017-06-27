@@ -9,21 +9,19 @@ namespace FubuCoreDemo.MVC.Endpoints
 {
     public class HomeEndpoint
     {
-        private readonly TodoItemsDataAccess _todoItemsDataAccess;
         private readonly IDocumentSession _documentSession;
-        private ItemList _itemList;
-        private HomeViewModel _homeViewModel;
+        private readonly ItemListDataAccess _itemListDataAccess;
+        private readonly HomeViewModel _homeViewModel;
 
-        public HomeEndpoint(TodoItemsDataAccess todoItemsDataAccess, IDocumentSession documentSession)
+        public HomeEndpoint(ItemListDataAccess itemListDataAccess, IDocumentSession documentSession)
         {
-            _todoItemsDataAccess = todoItemsDataAccess;
+            _itemListDataAccess = itemListDataAccess;
             _documentSession = documentSession;
-            _itemList = new ItemList(_todoItemsDataAccess);
 
             _homeViewModel = new HomeViewModel
             {
-                Text = "Hello Fubu 3!!",
-                Items = _itemList.TodoItems
+                Text = "All Your Base",
+                Items = new ItemList(_itemListDataAccess).TodoItems
             };
         }
 
@@ -35,19 +33,15 @@ namespace FubuCoreDemo.MVC.Endpoints
 
         public FubuContinuation post_Home_Todo(TodoItem item)
         {
-            _todoItemsDataAccess.AddItemToList(item);
-
+            _itemListDataAccess.AddItemToList(item);
             _documentSession.SaveChanges();
-
             return FubuContinuation.RedirectTo("~");
         }
 
         public FubuContinuation post_Home_Todo_Clear()
         {
-            _todoItemsDataAccess.ClearAll();
-
+            _itemListDataAccess.ClearAll();
             _documentSession.SaveChanges();
-
             return FubuContinuation.RedirectTo("~");
         }
     }
@@ -55,7 +49,6 @@ namespace FubuCoreDemo.MVC.Endpoints
     public class HomeViewModel
     {
         public string Text { get; set; }
-
         public List<TodoItem> Items { get; set; }
     }
 }

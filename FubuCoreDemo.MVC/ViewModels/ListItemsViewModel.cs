@@ -3,11 +3,11 @@ using FubuCoreDemo.MVC.Entities;
 
 namespace FubuCoreDemo.MVC.ViewModels
 {
-    public class ListTodoItemsViewModel
+    public class ListItemsViewModel
     {
-        public ListTodoItemsViewModel() { }
+        public ListItemsViewModel() { }
 
-        public ListTodoItemsViewModel(List<TodoItem> items)
+        public ListItemsViewModel(List<TodoItem> items)
         {
             Items = items;
         }

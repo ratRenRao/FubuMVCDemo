@@ -7,3 +7,4 @@ FubuMVC.LightningQueues
 xunit
 shouldly
 nlog
+moq

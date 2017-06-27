@@ -115,11 +115,12 @@
   <ItemGroup>
     <Compile Include="Behaviors\ErrorBehaviorConvention.cs" />
     <Compile Include="OtherDemoPolicy.cs" />
+    <Compile Include="SecondLoggingBehavior.cs" />
     <Compile Include="StopwatchBehavior.cs" />
     <Compile Include="DemoRegistry.cs" />
     <Compile Include="FakeService.cs" />
     <Compile Include="LocalizationDemo.cs" />
-    <Compile Include="LoggingBehavior.cs" />
+    <Compile Include="FirstLoggingBehavior.cs" />
     <Compile Include="DemoPolicy.cs" />
     <Compile Include="PingApp.cs" />
     <Compile Include="PingHandler.cs" />

@@ -1,5 +1,8 @@
-﻿using FubuMVC.Core;
+﻿using System.Collections.Generic;
+using System.Linq;
+using FubuMVC.Core;
 using FubuMVC.Core.Registration;
+using FubuMVC.Core.Registration.Nodes;
 
 namespace FubuCoreDemo.Transport
 {
@@ -7,10 +10,8 @@ namespace FubuCoreDemo.Transport
     {
         public void Configure(BehaviorGraph graph)
         {
-            foreach (var chain in graph.Chains)
-            {
-                chain.WrapWith<LoggingBehavior>();
-            }
+            graph.Chains.Each(x => x.WrapWith<FirstLoggingBehavior>());
+            graph.Actions().Each((x, i) => x.Where(y => y.BehaviorType == typeof(FirstLoggingBehavior)).Each(c => x.WrapWith<SecondLoggingBehavior>()));
         }
     }
 }

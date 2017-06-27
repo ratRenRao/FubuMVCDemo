@@ -8,3 +8,8 @@ Microsoft.CompilerServices.AsyncTargetingPack
 FubuMVC.RavenDb
 spark
 FubuMVC.Spark
+moq
+RavenDB.Client
+RavenDB.Database
+RavenDB.Embedded
+RavenDB.Server

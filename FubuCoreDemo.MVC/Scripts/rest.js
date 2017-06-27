@@ -1,5 +1,4 @@
-﻿// super simple REST helper
-var Rest = (function () {
+﻿var Rest = (function () {
     var rest = {};
 
     rest.get = function (url, callback) {

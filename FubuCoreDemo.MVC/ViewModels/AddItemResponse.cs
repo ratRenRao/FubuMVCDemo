@@ -2,14 +2,14 @@
 
 namespace FubuCoreDemo.MVC.ViewModels
 {
-    public class AddTodoItemResponse
+    public class AddItemResponse
     {
-        public AddTodoItemResponse()
+        public AddItemResponse()
         {
             
         }
 
-        public AddTodoItemResponse(TodoItem todoItem)
+        public AddItemResponse(TodoItem todoItem)
         {
             TodoItem = todoItem;
         }

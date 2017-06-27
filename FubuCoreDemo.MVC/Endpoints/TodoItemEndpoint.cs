@@ -20,49 +20,46 @@ namespace FubuCoreDemo.MVC.Endpoints
             _itemList = new ItemList(_todoItemsDataAccess);
         }
         
-        public ListTodoItemsViewModel get_Todo_List()
+        public ListItemsViewModel get_Todo_List()
         {
             var items = _todoItemsDataAccess.LoadItems();
-            return new ListTodoItemsViewModel(items);
+
+            return new ListItemsViewModel(items);
         }
 
         
         public TodoItem get_Todo(TodoGetRequest todo)
         {
             var item = _todoItemsDataAccess.GetTodoItem(todo.Id);
+
             return item;
         }
         
-        public AddTodoItemResponse post_Todo(TodoItem item)
+        public AddItemResponse post_Todo(TodoItem item)
         {
             _todoItemsDataAccess.AddItemToList(item);
-
             _documentSession.SaveChanges();
 
-            return new AddTodoItemResponse(item);
+            return new AddItemResponse(item);
         }
 
-        public UpdateTodoItemResponse post_Todo_MarkComplete(UpdateTodoItemRequest item)
+        public UpdateItemResponse post_Todo_MarkComplete(UpdateTodoItemRequest item)
         {
             _itemList.MarkItemComplete(item.Item.Id);
-
             _documentSession.SaveChanges();
 
-            return new UpdateTodoItemResponse {HttpStatusCode = HttpStatusCode.OK};
+            return new UpdateItemResponse {HttpStatusCode = HttpStatusCode.OK};
         }
 
-        public DeleteTodoItemResponse post_Todo_Delete(TodoDeleteRequest todo)
+        public DeleteItemResponse post_Todo_Delete(TodoDeleteRequest todo)
         {
             var todoItem = _todoItemsDataAccess.GetTodoItem(todo.Id);
-
             if (todoItem == null)
-                return new DeleteTodoItemResponse {HttpStatusCode = HttpStatusCode.NotFound};
-
+                return new DeleteItemResponse {HttpStatusCode = HttpStatusCode.NotFound};
             _todoItemsDataAccess.RemoveItemFromList(todoItem);
-
             _documentSession.SaveChanges();
 
-            return new DeleteTodoItemResponse { HttpStatusCode = HttpStatusCode.OK };
+            return new DeleteItemResponse { HttpStatusCode = HttpStatusCode.OK };
         }
     }
 

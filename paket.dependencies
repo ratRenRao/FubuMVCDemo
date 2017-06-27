@@ -3,6 +3,7 @@ source https://nuget.org/api/v2
 nuget FubuCore 2.0.1.321
 nuget FubuMVC.Core 3.0.2
 nuget FubuMVC.Spark
+nuget moq
 nuget nlog
 nuget spark 1.8.0.0
 nuget Structuremap 4.4.3
@@ -13,6 +14,7 @@ nuget Xunit
 nuget Shouldly
 nuget FubuMVC.RavenDb 3.1.0.50747
 nuget RavenDB.Client == 2.5.2750
+nuget RavenDB.Client 2.5.2750
 nuget RavenDB.Database 2.5.2750
 nuget RavenDB.Embedded 2.5.2750
 nuget RavenDB.Server 2.5.2750

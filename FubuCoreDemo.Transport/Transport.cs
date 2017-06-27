@@ -14,7 +14,7 @@ namespace FubuCoreDemo.Transport
         }
     }
 
-    public class TransportSettings : DemoRegistry
+    public class TransportSettings
     {
         public Uri Pinger { get; set; } = new Uri("lq.tcp://localhost:2352/pinger");
         public Uri Ponger { get; set; } = new Uri("lq.tcp://localhost:2353/ponger");

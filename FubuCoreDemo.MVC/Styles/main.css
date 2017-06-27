@@ -18,12 +18,7 @@
     min-width: 40%;
 }
 
-.listContainer.react::after {
-    background-image: url("../Images/react.png");
-}
-.listContainer.server::after {
-    background-image: url("../Images/server.png"); /* W3C */
-}
+
 .listContainer::after {
     content: "";
     opacity: 0.2;

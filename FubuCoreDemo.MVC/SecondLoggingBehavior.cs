@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using FubuCore.Logging;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
 
-namespace FubuCoreDemo.Transport
+namespace FubuCoreDemo.MVC
 {
-    public class LoggingBehavior : WrappingBehavior
+    public class SecondLoggingBehavior : WrappingBehavior
     {
         private readonly ICurrentChain _chain;
         private readonly ILogger _logger;
 
-        public LoggingBehavior(ICurrentChain chain, ILogger logger)
+        public SecondLoggingBehavior(ICurrentChain chain, ILogger logger)
         {
             _chain = chain;
             _logger = logger;
@@ -18,7 +22,7 @@ namespace FubuCoreDemo.Transport
 
         protected override void invoke(Action action)
         {
-            _logger.Debug($"Entered LogginBehavior");
+            _logger.Debug($"Entered SecondLoggingBehavior");
             action();
         }
     }
