@@ -105,8 +105,6 @@
     <Content Include="Endpoints\Todo.react.jsx" />
     <Content Include="global.asax" />
     <Content Include="Images\check.png" />
-    <Content Include="Images\react.png" />
-    <Content Include="Images\Server.png" />
     <Content Include="Images\trash.png" />
     <Content Include="packages.config" />
     <Content Include="Scripts\react-dom.js" />
@@ -127,7 +125,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Styles\main.css" />
+    <Content Include="Styles\main.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ namespace FubuCoreDemo.MVC
         public AppRegistry()
         {
             // Apply the MyLoggingPolicy to every
-            // chain in the system
+            // chain in the system (i.e. Bottles included)
             Policies.Global.Add<DemoPolicy>();
             // Apply the MyLoggingPolicy to only
             // the chains discovered from the main application
@@ -15,6 +15,11 @@ namespace FubuCoreDemo.MVC
             Policies.Local.Add<DemoPolicy>();
 
             Policies.Global.Add<OtherDemoPolicy>();
+
+            Policies.Global.Reorder(x =>
+            {
+                x.ThisWrapperBeBefore<FirstLoggingBehavior>();
+            });
 
             //Use 'Endpoint' suffix convention, turning the public methods into actions
             Actions.IncludeClassesSuffixedWithEndpoint();

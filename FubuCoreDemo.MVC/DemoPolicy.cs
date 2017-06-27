@@ -8,10 +8,9 @@ namespace FubuCoreDemo.MVC
     {
         public void Configure(BehaviorGraph graph)
         {
-            var firstBehavior = graph.ChainFor<FirstLoggingBehavior>();
             foreach (var chain in graph.Chains)
             {
-                firstBehavior.FirstCall().AddBefore(ActionFilter.For<SecondLoggingBehavior>(x => true));
+                chain.WrapWith<FirstLoggingBehavior>();
             }
         }
     }

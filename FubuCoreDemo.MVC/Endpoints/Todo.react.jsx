@@ -70,7 +70,6 @@ var TodoApp = React.createClass({
                 return;
             }
 
-            //let itemIdx = that.state.items.indexOf(item);
             item.IsComplete = true;
 
             that.setState({ items: that.state.items });

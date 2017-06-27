@@ -10,7 +10,8 @@ namespace FubuCoreDemo.MVC
         {
             foreach (var chain in graph.Chains)
             {
-                //chain.WrapWith<StopwatchBehavior>();
+                chain.WrapWith<SecondLoggingBehavior>();
+                chain.WrapWith<ThirdLoggingBehavior>();
             }
         }
     }
