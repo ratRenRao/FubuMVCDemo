@@ -23,7 +23,7 @@ namespace FubuCoreDemo.Testing.MVCTests
         [Fact]
         public void get_Todo_List_should_call_DataAccess_LoadItems()
         {
-            var mockTodoItemsDataAccess = MockRepository.Create<ITodoItemsDataAccess>();
+            var mockTodoItemsDataAccess = MockRepository.Create<IListDataAccess>();
             var mockDocumentSession = MockRepository.Create<IDocumentSession<RavenDbSettings>>();
             var itemsToReturn = new List<TodoItem> { new TodoItem { Text = "item1 " }, new TodoItem() };
 
@@ -42,7 +42,7 @@ namespace FubuCoreDemo.Testing.MVCTests
         [Fact]
         public void get_Todo_should_call_GetTodoItem_from_dataAccess_with_correct_params()
         {
-            var mockTodoItemsDataAccess = MockRepository.Create<ITodoItemsDataAccess>();
+            var mockTodoItemsDataAccess = MockRepository.Create<IListDataAccess>();
             mockTodoItemsDataAccess.SetupAllProperties();
 
             var mockDocumentSession = MockRepository.Create<IDocumentSession>();
@@ -56,13 +56,13 @@ namespace FubuCoreDemo.Testing.MVCTests
             endpoint.get_Todo(todoGetReqeust);
 
             mockTodoItemsDataAccess.Verify(
-                todoItemDataAccess => todoItemDataAccess.GetTodoItem(todoGetReqeust.Id));
+                todoItemDataAccess => todoItemDataAccess.GetItemById(todoGetReqeust.Id));
         }
 
         [Fact]
         public void post_Todo_should_add_item_and_save_changes()
         {
-            var mockTodoItemsDataAccess = MockRepository.Create<ITodoItemsDataAccess>();
+            var mockTodoItemsDataAccess = MockRepository.Create<IListDataAccess>();
             mockTodoItemsDataAccess.SetupAllProperties();
 
             var mockDocumentSession = MockRepository.Create<IDocumentSession>();
@@ -74,7 +74,7 @@ namespace FubuCoreDemo.Testing.MVCTests
 
             var result = endpoint.post_Todo(todo);
 
-            mockTodoItemsDataAccess.Verify(da => da.AddItemToList(todo));
+            mockTodoItemsDataAccess.Verify(da => da.StoreItem(todo));
             mockDocumentSession.Verify(ds => ds.SaveChanges());
         }
     }

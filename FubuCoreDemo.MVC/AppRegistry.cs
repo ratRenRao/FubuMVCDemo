@@ -16,10 +16,10 @@ namespace FubuCoreDemo.MVC
 
             Policies.Global.Add<OtherDemoPolicy>();
 
-            Policies.Global.Reorder(x =>
-            {
-                x.ThisWrapperBeBefore<FirstLoggingBehavior>();
-            });
+            //Policies.Global.Reorder(x =>
+            //{
+            //    x.ThisWrapperBeBefore<FirstLoggingBehavior>();
+            //});
 
             //Use 'Endpoint' suffix convention, turning the public methods into actions
             Actions.IncludeClassesSuffixedWithEndpoint();

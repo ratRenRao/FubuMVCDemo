@@ -1,4 +1,7 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
 using FubuCoreDemo.MVC.DataAccess;
 using FubuCoreDemo.MVC.Entities;
 using FubuCoreDemo.MVC.ViewModels;
@@ -8,37 +11,47 @@ namespace FubuCoreDemo.MVC.Endpoints
 {
     public class TodoItemEndpoint
     {
-        private readonly ITodoItemsDataAccess _todoItemsDataAccess;
+        private readonly IListDataAccess _taskListDataAccess;
         private readonly IDocumentSession _documentSession;
         private ItemList _itemList;
 
-        public TodoItemEndpoint(ITodoItemsDataAccess todoItemsDataAccess, IDocumentSession documentSession)
+        public TodoItemEndpoint(IListDataAccess taskListDataAccess, IDocumentSession documentSession)
         {
-            _todoItemsDataAccess = todoItemsDataAccess;
+            _taskListDataAccess = taskListDataAccess;
             _documentSession = documentSession;
 
-            _itemList = new ItemList(_todoItemsDataAccess);
+            _itemList = new ItemList(_taskListDataAccess);
         }
         
-        public ListItemsViewModel get_Todo_List()
+        public List<TodoItem> get_Todo_List()
         {
-            var items = _todoItemsDataAccess.LoadItems();
+            _taskListDataAccess.ClearAll();
 
-            return new ListItemsViewModel(items);
+            post_Todo(new TodoItem
+            {
+                Text = "First Task",
+                IsComplete = false
+            });
+
+            post_Todo(new TodoItem
+            {
+                Text = "Second Task",
+                IsComplete = false
+            });
+
+            var items = _taskListDataAccess.LoadItems<TodoItem>();
+            return items;
         }
 
-        
         public TodoItem get_Todo(TodoGetRequest todo)
         {
-            var item = _todoItemsDataAccess.GetTodoItem(todo.Id);
-
+            var item = _taskListDataAccess.GetItemById<TodoItem>(todo.Id);
             return item;
         }
         
         public AddItemResponse post_Todo(TodoItem item)
         {
-            _todoItemsDataAccess.AddItemToList(item);
-            _documentSession.SaveChanges();
+            _taskListDataAccess.SaveItem(item);
 
             return new AddItemResponse(item);
         }
@@ -53,10 +66,10 @@ namespace FubuCoreDemo.MVC.Endpoints
 
         public DeleteItemResponse post_Todo_Delete(TodoDeleteRequest todo)
         {
-            var todoItem = _todoItemsDataAccess.GetTodoItem(todo.Id);
+            var todoItem = _taskListDataAccess.GetItemById<TodoItem>(todo.Id);
             if (todoItem == null)
                 return new DeleteItemResponse {HttpStatusCode = HttpStatusCode.NotFound};
-            _todoItemsDataAccess.RemoveItemFromList(todoItem);
+            _taskListDataAccess.RemoveItemFromList(todoItem);
             _documentSession.SaveChanges();
 
             return new DeleteItemResponse { HttpStatusCode = HttpStatusCode.OK };

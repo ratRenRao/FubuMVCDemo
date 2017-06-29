@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using FubuCoreDemo.MVC.DataAccess;
 using FubuMVC.Core.Registration;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace FubuCoreDemo.MVC
 {
@@ -10,7 +9,13 @@ namespace FubuCoreDemo.MVC
     {
         public CoreRegistry()
         {
-            //scan for items to add which follow the default conventions
+            For<IListDataAccess>().Use<DataAccess.ListDataAccess>();
+
+            ReplaceService(new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            });
+
             Scan(x =>
             {
                 x.TheCallingAssembly();

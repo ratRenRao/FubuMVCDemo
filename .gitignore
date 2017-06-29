@@ -297,3 +297,4 @@ __pycache__/
 # User added
 packages/*
 data/*
+FubuCoreDemo.MVC/Raven/*

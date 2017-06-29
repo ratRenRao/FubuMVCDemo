@@ -373,3 +373,2782 @@ select new {  }";
 }
 
 27062017143144|0002:/LM/W3SVC/2/ROOT-1-131430726810010000|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017123710|0002:/LM/W3SVC/2/ROOT-1-131431522163171858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017123710|0002:/LM/W3SVC/2/ROOT-1-131431522163171858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017123711|0002:/LM/W3SVC/2/ROOT-1-131431522163171858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017123714|0002:/LM/W3SVC/2/ROOT-1-131431522163171858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017123920|0002:/LM/W3SVC/2/ROOT-1-131431523535851858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017123920|0002:/LM/W3SVC/2/ROOT-1-131431523535851858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017123921|0002:/LM/W3SVC/2/ROOT-1-131431523535851858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017123925|0002:/LM/W3SVC/2/ROOT-1-131431523535851858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017124919|0002:/LM/W3SVC/2/ROOT-1-131431529453651858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017124919|0002:/LM/W3SVC/2/ROOT-1-131431529453651858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017124920|0002:/LM/W3SVC/2/ROOT-1-131431529453651858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017124923|0002:/LM/W3SVC/2/ROOT-1-131431529453651858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017125233|0002:/LM/W3SVC/2/ROOT-1-131431531448621858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017125233|0002:/LM/W3SVC/2/ROOT-1-131431531448621858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017125234|0002:/LM/W3SVC/2/ROOT-1-131431531448621858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017125237|0002:/LM/W3SVC/2/ROOT-1-131431531448621858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017125614|0002:/LM/W3SVC/2/ROOT-1-131431533609991858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017125614|0002:/LM/W3SVC/2/ROOT-1-131431533609991858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017125615|0002:/LM/W3SVC/2/ROOT-1-131431533609991858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017125619|0002:/LM/W3SVC/2/ROOT-1-131431533609991858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017125908|0002:/LM/W3SVC/2/ROOT-1-131431535342471858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017125908|0002:/LM/W3SVC/2/ROOT-1-131431535342471858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017125909|0002:/LM/W3SVC/2/ROOT-1-131431535342471858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017125912|0002:/LM/W3SVC/2/ROOT-1-131431535342471858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017130644|0002:/LM/W3SVC/2/ROOT-1-131431539583481858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017130645|0002:/LM/W3SVC/2/ROOT-1-131431539583481858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017130645|0002:/LM/W3SVC/2/ROOT-1-131431539583481858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017130648|0002:/LM/W3SVC/2/ROOT-1-131431539583481858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017132727|0002:/LM/W3SVC/2/ROOT-1-131431552265361858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017132727|0002:/LM/W3SVC/2/ROOT-1-131431552265361858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017132728|0002:/LM/W3SVC/2/ROOT-1-131431552265361858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017132730|0002:/LM/W3SVC/2/ROOT-1-131431552265361858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017133056|0002:/LM/W3SVC/2/ROOT-1-131431554365511858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017133057|0002:/LM/W3SVC/2/ROOT-1-131431554365511858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017133058|0002:/LM/W3SVC/2/ROOT-1-131431554365511858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017133100|0002:/LM/W3SVC/2/ROOT-1-131431554365511858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017145837|0002:/LM/W3SVC/2/ROOT-1-131431606958551858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017145837|0002:/LM/W3SVC/2/ROOT-1-131431606958551858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017145838|0002:/LM/W3SVC/2/ROOT-1-131431606958551858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017145841|0002:/LM/W3SVC/2/ROOT-1-131431606958551858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017145954|0002:/LM/W3SVC/2/ROOT-1-131431607778071858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017145955|0002:/LM/W3SVC/2/ROOT-1-131431607778071858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017145955|0002:/LM/W3SVC/2/ROOT-1-131431607778071858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017145959|0002:/LM/W3SVC/2/ROOT-1-131431607778071858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017152714|0002:/LM/W3SVC/2/ROOT-1-131431624191451858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017152715|0002:/LM/W3SVC/2/ROOT-1-131431624191451858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017152716|0002:/LM/W3SVC/2/ROOT-1-131431624191451858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017152719|0002:/LM/W3SVC/2/ROOT-1-131431624191451858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017154440|0002:/LM/W3SVC/2/ROOT-1-131431634649351858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017154440|0002:/LM/W3SVC/2/ROOT-1-131431634649351858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017154441|0002:/LM/W3SVC/2/ROOT-1-131431634649351858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017154445|0002:/LM/W3SVC/2/ROOT-1-131431634649351858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017155323|0002:/LM/W3SVC/2/ROOT-1-131431639880871858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017155324|0002:/LM/W3SVC/2/ROOT-1-131431639880871858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017155325|0002:/LM/W3SVC/2/ROOT-1-131431639880871858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017155328|0002:/LM/W3SVC/2/ROOT-1-131431639880871858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017155717|0002:/LM/W3SVC/2/ROOT-1-131431642207401858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017155717|0002:/LM/W3SVC/2/ROOT-1-131431642207401858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017155718|0002:/LM/W3SVC/2/ROOT-1-131431642207401858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017155721|0002:/LM/W3SVC/2/ROOT-1-131431642207401858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017155945|0002:/LM/W3SVC/2/ROOT-1-131431643690381858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017155945|0002:/LM/W3SVC/2/ROOT-1-131431643690381858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017155946|0002:/LM/W3SVC/2/ROOT-1-131431643690381858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017155949|0002:/LM/W3SVC/2/ROOT-1-131431643690381858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017160437|0002:/LM/W3SVC/2/ROOT-1-131431646622311858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017160437|0002:/LM/W3SVC/2/ROOT-1-131431646622311858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017160438|0002:/LM/W3SVC/2/ROOT-1-131431646622311858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017160441|0002:/LM/W3SVC/2/ROOT-1-131431646622311858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017160803|0002:/LM/W3SVC/2/ROOT-1-131431648671411858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017160803|0002:/LM/W3SVC/2/ROOT-1-131431648671411858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017160804|0002:/LM/W3SVC/2/ROOT-1-131431648671411858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017160807|0002:/LM/W3SVC/2/ROOT-1-131431648671411858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+28062017163908|0002:/LM/W3SVC/2/ROOT-1-131431667403781858|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+28062017163908|0002:/LM/W3SVC/2/ROOT-1-131431667403781858|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+28062017163909|0002:/LM/W3SVC/2/ROOT-1-131431667403781858|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+28062017163912|0002:/LM/W3SVC/2/ROOT-1-131431667403781858|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017082811|0002:/LM/W3SVC/2/ROOT-1-131432236746774504|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017082811|0002:/LM/W3SVC/2/ROOT-1-131432236746774504|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017082812|0002:/LM/W3SVC/2/ROOT-1-131432236746774504|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017082814|0002:/LM/W3SVC/2/ROOT-1-131432236746774504|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017084726|0002:/LM/W3SVC/2/ROOT-1-131432248311254408|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017084726|0002:/LM/W3SVC/2/ROOT-1-131432248311254408|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017084727|0002:/LM/W3SVC/2/ROOT-1-131432248311254408|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017084731|0002:/LM/W3SVC/2/ROOT-1-131432248311254408|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017084905|0002:/LM/W3SVC/2/ROOT-1-131432249304853758|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017084906|0002:/LM/W3SVC/2/ROOT-1-131432249304853758|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017084907|0002:/LM/W3SVC/2/ROOT-1-131432249304853758|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017084910|0002:/LM/W3SVC/2/ROOT-1-131432249304853758|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017085054|0002:/LM/W3SVC/2/ROOT-1-131432250393532615|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017085054|0002:/LM/W3SVC/2/ROOT-1-131432250393532615|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017085055|0002:/LM/W3SVC/2/ROOT-1-131432250393532615|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017085058|0002:/LM/W3SVC/2/ROOT-1-131432250393532615|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017085247|0002:/LM/W3SVC/2/ROOT-1-131432251533456286|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017085247|0002:/LM/W3SVC/2/ROOT-1-131432251533456286|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017085248|0002:/LM/W3SVC/2/ROOT-1-131432251533456286|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017085250|0002:/LM/W3SVC/2/ROOT-1-131432251533456286|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017085558|0002:/LM/W3SVC/2/ROOT-1-131432253431986414|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017085558|0002:/LM/W3SVC/2/ROOT-1-131432253431986414|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017085559|0002:/LM/W3SVC/2/ROOT-1-131432253431986414|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017085602|0002:/LM/W3SVC/2/ROOT-1-131432253431986414|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017085658|0002:/LM/W3SVC/2/ROOT-1-131432254032176389|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017085659|0002:/LM/W3SVC/2/ROOT-1-131432254032176389|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017085700|0002:/LM/W3SVC/2/ROOT-1-131432254032176389|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017085703|0002:/LM/W3SVC/2/ROOT-1-131432254032176389|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017085928|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017085928|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017085929|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017085929|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Warn|Unclean shutdown detected on Auto/TodoItems, checking the index for errors. This may take a while.
+29062017085930|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Warn|Checking index Auto/TodoItems took: 00:00:00.0797868, clean: True
+29062017085930|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Warn|Segments file=segments_1g numSegments=6 version=FORMAT_DIAGNOSTICS [Lucene 2.9]
+  1 of 6: name=_14 docCount=2
+    compound=False
+    hasProx=True
+    numFiles=8
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=merge, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, optimize=False, lucene.version=3.0.3.0, mergeFactor=10, mergeDocStores=True, os=Windows_NT, java.version=}
+    has deletions [delFileName=_14_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  2 of 6: name=_15 docCount=2
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_15_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  3 of 6: name=_16 docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_16_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [1 terms; 1 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  4 of 6: name=_17 docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_17_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [1 terms; 1 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  5 of 6: name=_18 docCount=2
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_18_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  6 of 6: name=_19 docCount=2
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_19_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields.....
+29062017085932|0002:/LM/W3SVC/2/ROOT-1-131432255540066444|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017090715|0002:/LM/W3SVC/2/ROOT-1-131432260209696444|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017090716|0002:/LM/W3SVC/2/ROOT-1-131432260209696444|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017090717|0002:/LM/W3SVC/2/ROOT-1-131432260209696444|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017090719|0002:/LM/W3SVC/2/ROOT-1-131432260209696444|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017091113|0002:/LM/W3SVC/2/ROOT-1-131432262586596444|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017091113|0002:/LM/W3SVC/2/ROOT-1-131432262586596444|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017091114|0002:/LM/W3SVC/2/ROOT-1-131432262586596444|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017091117|0002:/LM/W3SVC/2/ROOT-1-131432262586596444|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017091123|0002:/LM/W3SVC/2/ROOT-1-131432262586596444|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017095157|0002:/LM/W3SVC/2/ROOT-1-131432287038062405|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017095158|0002:/LM/W3SVC/2/ROOT-1-131432287038062405|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017095159|0002:/LM/W3SVC/2/ROOT-1-131432287038062405|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017095159|0002:/LM/W3SVC/2/ROOT-1-131432287038062405|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017095159|0002:/LM/W3SVC/2/ROOT-1-131432287038062405|Warn|Could not open index Auto/TodoItems/ByText. Recovery operation failed, forcibly resetting index
+29062017095202|0002:/LM/W3SVC/2/ROOT-1-131432287038062405|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017101348|0002:/LM/W3SVC/2/ROOT-1-131432300166929573|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017101348|0002:/LM/W3SVC/2/ROOT-1-131432300166929573|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017101349|0002:/LM/W3SVC/2/ROOT-1-131432300166929573|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017101349|0002:/LM/W3SVC/2/ROOT-1-131432300166929573|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017101352|0002:/LM/W3SVC/2/ROOT-1-131432300166929573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017101602|0002:/LM/W3SVC/2/ROOT-1-131432301509479573|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017101603|0002:/LM/W3SVC/2/ROOT-1-131432301509479573|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017101604|0002:/LM/W3SVC/2/ROOT-1-131432301509479573|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017101604|0002:/LM/W3SVC/2/ROOT-1-131432301509479573|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017101606|0002:/LM/W3SVC/2/ROOT-1-131432301509479573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used

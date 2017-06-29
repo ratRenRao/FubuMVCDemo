@@ -132,8 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreRegistry.cs" />
-    <Compile Include="DataAccess\ITodoItemsDataAccess.cs" />
-    <Compile Include="DataAccess\ItemListDataAccess.cs" />
+    <Compile Include="DataAccess\IListDataAccess.cs" />
+    <Compile Include="DataAccess\ListDataAccess.cs" />
     <Compile Include="DemoPolicy.cs" />
     <Compile Include="Endpoints\HomeEndpoint.cs" />
     <Compile Include="Endpoints\TodoItemEndpoint.cs" />

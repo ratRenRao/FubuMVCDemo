@@ -5,37 +5,37 @@ namespace FubuCoreDemo.MVC.Entities
 {
     public class ItemList
     {
-        private readonly ITodoItemsDataAccess _todoItemsDataAccess;
+        private readonly IListDataAccess _listDataAccess;
 
-        public ItemList(ITodoItemsDataAccess todoItemsDataAccess)
+        public ItemList(IListDataAccess listDataAccess)
         {
-            _todoItemsDataAccess = todoItemsDataAccess;
+            _listDataAccess = listDataAccess;
         }
 
         public List<TodoItem> TodoItems
         {
             get
             {
-                var items = _todoItemsDataAccess.LoadItems();
+                var items = _listDataAccess.LoadItems<TodoItem>();
                 return items;
             }
         }
 
         public void AddItem(TodoItem item)
         {
-            _todoItemsDataAccess.AddItemToList(item);
+            _listDataAccess.StoreItem(item);
         }
 
         public void RemoveItem(TodoItem item)
         {
-            _todoItemsDataAccess.RemoveItemFromList(item);
+            _listDataAccess.RemoveItemFromList(item);
         }
 
         public void MarkItemComplete(string itemId)
         {
             var item = TodoItems.Find(i => i.Id == itemId);
             item.IsComplete = true;
-            _todoItemsDataAccess.SaveItem(item);
+            _listDataAccess.SaveItem(item);
         }
     }
 }

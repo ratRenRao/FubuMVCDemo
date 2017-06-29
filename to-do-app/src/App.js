@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ToDoContainer from "./containers/to-do-list";
 
 class App extends Component {
   render() {
@@ -10,7 +11,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>To-Do App</h2>
         </div>
-        <p></p>
+        <div id="list">
+            <ToDoContainer/>
+        </div>
+        <div id="info">
+
+        </div>
       </div>
     );
   }
