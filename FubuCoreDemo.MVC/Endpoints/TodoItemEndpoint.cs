@@ -13,14 +13,14 @@ namespace FubuCoreDemo.MVC.Endpoints
     {
         private readonly IListDataAccess _taskListDataAccess;
         private readonly IDocumentSession _documentSession;
-        private ItemList _itemList;
+        //private ItemList _itemList;
 
         public TodoItemEndpoint(IListDataAccess taskListDataAccess, IDocumentSession documentSession)
         {
             _taskListDataAccess = taskListDataAccess;
             _documentSession = documentSession;
 
-            _itemList = new ItemList(_taskListDataAccess);
+            //_itemList = new ItemList(_taskListDataAccess);
         }
         
         public List<TodoItem> get_Todo_List()
@@ -39,13 +39,13 @@ namespace FubuCoreDemo.MVC.Endpoints
                 IsComplete = false
             });
 
-            var items = _taskListDataAccess.LoadItems<TodoItem>();
+            var items = _taskListDataAccess.LoadItems();
             return items;
         }
 
         public TodoItem get_Todo(TodoGetRequest todo)
         {
-            var item = _taskListDataAccess.GetItemById<TodoItem>(todo.Id);
+            var item = _taskListDataAccess.GetItem(todo.Id);
             return item;
         }
         
@@ -58,7 +58,7 @@ namespace FubuCoreDemo.MVC.Endpoints
 
         public UpdateItemResponse post_Todo_MarkComplete(UpdateTodoItemRequest item)
         {
-            _itemList.MarkItemComplete(item.Item.Id);
+            //_itemList.MarkItemComplete(item.Item.Id);
             _documentSession.SaveChanges();
 
             return new UpdateItemResponse {HttpStatusCode = HttpStatusCode.OK};
@@ -66,10 +66,10 @@ namespace FubuCoreDemo.MVC.Endpoints
 
         public DeleteItemResponse post_Todo_Delete(TodoDeleteRequest todo)
         {
-            var todoItem = _taskListDataAccess.GetItemById<TodoItem>(todo.Id);
+            var todoItem = _taskListDataAccess.GetItem(todo.Id);
             if (todoItem == null)
                 return new DeleteItemResponse {HttpStatusCode = HttpStatusCode.NotFound};
-            _taskListDataAccess.RemoveItemFromList(todoItem);
+            _taskListDataAccess.RemoveItemFromList(todo.Id);
             _documentSession.SaveChanges();
 
             return new DeleteItemResponse { HttpStatusCode = HttpStatusCode.OK };

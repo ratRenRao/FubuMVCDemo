@@ -36,7 +36,7 @@ namespace FubuCoreDemo.Testing.MVCTests
 
             mockTodoItemsDataAccess.Verify(x => x.LoadItems());
             result.ShouldBeOfType(typeof(ListItemsViewModel));
-            result.Items.Count.ShouldBe(2);
+            result.Count.ShouldBe(2);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace FubuCoreDemo.Testing.MVCTests
             endpoint.get_Todo(todoGetReqeust);
 
             mockTodoItemsDataAccess.Verify(
-                todoItemDataAccess => todoItemDataAccess.GetItemById(todoGetReqeust.Id));
+                todoItemDataAccess => todoItemDataAccess.GetItem(todoGetReqeust.Id));
         }
 
         [Fact]

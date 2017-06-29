@@ -1,4 +1,5 @@
 ﻿using FubuCoreDemo.MVC.DataAccess;
+using FubuCoreDemo.MVC.Entities;
 using FubuMVC.Core.Registration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -9,7 +10,7 @@ namespace FubuCoreDemo.MVC
     {
         public CoreRegistry()
         {
-            For<IListDataAccess>().Use<DataAccess.ListDataAccess>();
+            For<IListDataAccess>().Use<ListDataAccess>();
 
             ReplaceService(new JsonSerializerSettings
             {

@@ -16,7 +16,7 @@ namespace FubuCoreDemo.MVC.Entities
         {
             get
             {
-                var items = _listDataAccess.LoadItems<TodoItem>();
+                var items = _listDataAccess.LoadItems();
                 return items;
             }
         }
@@ -26,16 +26,16 @@ namespace FubuCoreDemo.MVC.Entities
             _listDataAccess.StoreItem(item);
         }
 
-        public void RemoveItem(TodoItem item)
+        public void RemoveItem(string id)
         {
-            _listDataAccess.RemoveItemFromList(item);
+            _listDataAccess.RemoveItemFromList(id);
         }
 
-        public void MarkItemComplete(string itemId)
-        {
-            var item = TodoItems.Find(i => i.Id == itemId);
-            item.IsComplete = true;
-            _listDataAccess.SaveItem(item);
-        }
+        //public void MarkItemComplete(string itemId)
+        //{
+        //    var item = TodoItems.Find(i => i.Id == itemId);
+        //    item.IsComplete = true;
+        //    _listDataAccess.SaveItem(item);
+        //}
     }
 }

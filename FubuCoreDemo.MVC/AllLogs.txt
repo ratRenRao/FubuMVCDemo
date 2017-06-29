@@ -3152,3 +3152,724 @@ select new {  }";
 }
 
 29062017101606|0002:/LM/W3SVC/2/ROOT-1-131432301509479573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017102741|0002:/LM/W3SVC/2/ROOT-1-131432308487209573|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017102741|0002:/LM/W3SVC/2/ROOT-1-131432308487209573|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017102742|0002:/LM/W3SVC/2/ROOT-1-131432308487209573|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017102742|0002:/LM/W3SVC/2/ROOT-1-131432308487209573|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017102744|0002:/LM/W3SVC/2/ROOT-1-131432308487209573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017103323|0002:/LM/W3SVC/2/ROOT-1-131432311910159573|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017103323|0002:/LM/W3SVC/2/ROOT-1-131432311910159573|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017103324|0002:/LM/W3SVC/2/ROOT-1-131432311910159573|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017103324|0002:/LM/W3SVC/2/ROOT-1-131432311910159573|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017103327|0002:/LM/W3SVC/2/ROOT-1-131432311910159573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017110101|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017110101|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Unclean shutdown detected on Auto/TodoItems/ByText, checking the index for errors. This may take a while.
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Unclean shutdown detected on Auto/TodoItems, checking the index for errors. This may take a while.
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Checking index Auto/TodoItems took: 00:00:00.0574421, clean: True
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Segments file=segments_1r numSegments=4 version=FORMAT_DIAGNOSTICS [Lucene 2.9]
+  1 of 4: name=_1e docCount=2
+    compound=False
+    hasProx=True
+    numFiles=8
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=merge, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, optimize=False, lucene.version=3.0.3.0, mergeFactor=10, mergeDocStores=True, os=Windows_NT, java.version=}
+    has deletions [delFileName=_1e_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  2 of 4: name=_1f docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_1f_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [1 terms; 1 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  3 of 4: name=_1g docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_1g_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [1 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, pr
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Checking index Auto/TodoItems/ByText took: 00:00:00.0672222, clean: True
+29062017110102|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Segments file=segments_9 numSegments=6 version=FORMAT_DIAGNOSTICS [Lucene 2.9]
+  1 of 6: name=_0 docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_0_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [2 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  2 of 6: name=_1 docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_1_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [2 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  3 of 6: name=_2 docCount=2
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_2_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields..............OK [2 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [4 terms; 4 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  4 of 6: name=_3 docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_3_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [2 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  5 of 6: name=_4 docCount=1
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_4_1.del]
+    test: open reader.........OK [1 deleted docs]
+    test: fields..............OK [2 fields]
+    test: field norms.........OK [0 fields]
+    test: terms, freq, prox...OK [2 terms; 2 terms/docs pairs; 0 tokens]
+    test: stored fields.......OK [0 total field count; avg NaN fields per doc]
+    test: term vectors........OK [0 total vector count; avg NaN term/freq vector fields per doc]
+
+  6 of 6: name=_5 docCount=2
+    compound=True
+    hasProx=True
+    numFiles=2
+    size (MB)=0.00
+    diagnostics = {os.arch=x86, source=flush, os.version=Microsoft Windows NT 6.1.7601 Service Pack 1, java.vendor=, lucene.version=3.0.3.0, os=Windows_NT, java.version=}
+    has deletions [delFileName=_5_1.del]
+    test: open reader.........OK [2 deleted docs]
+    test: fields..............OK [2 fields]
+    test: field norms.........OK [0 fields]
+29062017110106|0002:/LM/W3SVC/2/ROOT-1-131432328498799573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used
+29062017110545|0002:/LM/W3SVC/2/ROOT-1-131432331331479573|Info|MemoryCache Settings:
+  PhysicalMemoryLimit = 99
+  CacheMemoryLimit    = 15897460736
+  PollingInterval     = 00:02:00
+29062017110545|0002:/LM/W3SVC/2/ROOT-1-131432331331479573|Info|Esent Settings:
+  MaxVerPages      = 32768
+  CacheSizeMax     = 65536
+  DatabasePageSize = 4096
+29062017110546|0002:/LM/W3SVC/2/ROOT-1-131432331331479573|Info|New index Auto%2fTodoItems%2fByText:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems_2fByText : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems_2fByText()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new { Text = doc.Text }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				Text = doc.Text,
+				__document_id = doc.__document_id
+			});
+		this.AddField("Text");
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("Text");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("Text");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017110546|0002:/LM/W3SVC/2/ROOT-1-131432331331479573|Info|New index Auto%2fTodoItems:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+Compiled to:
+using Raven.Abstractions;
+using Raven.Database.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using Raven.Database.Linq.PrivateExtensions;
+using Lucene.Net.Documents;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Raven.Database.Indexing;
+
+
+public class Index_Auto_2fTodoItems : Raven.Database.Linq.AbstractViewGenerator
+{
+	public Index_Auto_2fTodoItems()
+	{
+		this.ViewText = @"from doc in docs.TodoItems
+select new {  }";
+		this.ForEntityNames.Add("TodoItems");
+		this.AddMapDefinition(docs => 
+			from doc in docs
+			where string.Equals(doc["@metadata"]["Raven-Entity-Name"], "TodoItems", System.StringComparison.InvariantCultureIgnoreCase)
+			select new {
+				__document_id = doc.__document_id
+			});
+		this.AddField("__document_id");
+		this.AddQueryParameterForMap("__document_id");
+		this.AddQueryParameterForReduce("__document_id");
+	}
+}
+
+29062017110549|0002:/LM/W3SVC/2/ROOT-1-131432331331479573|Warn|Could not setup performance counters properly because of access permissions, perf counters will not be used

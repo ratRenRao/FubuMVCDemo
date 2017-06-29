@@ -11,10 +11,10 @@ namespace FubuCoreDemo.MVC.Endpoints
     public class HomeEndpoint
     {
         private readonly IDocumentSession _documentSession;
-        private readonly DataAccess.ListDataAccess _listDataAccess;
+        private readonly IListDataAccess _listDataAccess;
         private readonly HomeViewModel _homeViewModel;
 
-        public HomeEndpoint(DataAccess.ListDataAccess listDataAccess, IDocumentSession documentSession)
+        public HomeEndpoint(IListDataAccess listDataAccess, IDocumentSession documentSession)
         {
             _listDataAccess = listDataAccess;
             _documentSession = documentSession;

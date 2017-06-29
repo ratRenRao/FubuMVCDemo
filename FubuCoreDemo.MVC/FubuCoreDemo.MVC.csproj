@@ -192,6 +192,12 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\FubuCoreDemo.Transport\FubuCoreDemo.Transport.csproj">
+      <Project>{43C1C3B1-DF26-43F6-948A-04EDACE11C44}</Project>
+      <Name>FubuCoreDemo.Transport</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
       <ItemGroup>
@@ -218,12 +224,6 @@
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FubuCoreDemo.Transport\FubuCoreDemo.Transport.csproj">
-      <Project>{43C1C3B1-DF26-43F6-948A-04EDACE11C44}</Project>
-      <Name>FubuCoreDemo.Transport</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')">
