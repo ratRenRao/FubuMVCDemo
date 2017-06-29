@@ -115,12 +115,12 @@
   <ItemGroup>
     <Compile Include="Behaviors\ErrorBehaviorConvention.cs" />
     <Compile Include="OtherDemoPolicy.cs" />
-    <Compile Include="SecondLoggingBehavior.cs" />
-    <Compile Include="StopwatchBehavior.cs" />
+    <Compile Include="Behaviors\SecondLoggingBehavior.cs" />
+    <Compile Include="Behaviors\StopwatchBehavior.cs" />
     <Compile Include="DemoRegistry.cs" />
     <Compile Include="FakeService.cs" />
     <Compile Include="LocalizationDemo.cs" />
-    <Compile Include="FirstLoggingBehavior.cs" />
+    <Compile Include="Behaviors\FirstLoggingBehavior.cs" />
     <Compile Include="DemoPolicy.cs" />
     <Compile Include="PingApp.cs" />
     <Compile Include="PingHandler.cs" />
@@ -130,7 +130,7 @@
     <Compile Include="PongMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThirdLoggingBehavior.cs" />
+    <Compile Include="Behaviors\ThirdLoggingBehavior.cs" />
     <Compile Include="Transport.cs" />
     <Compile Include="AddTextBehavior.cs" />
   </ItemGroup>

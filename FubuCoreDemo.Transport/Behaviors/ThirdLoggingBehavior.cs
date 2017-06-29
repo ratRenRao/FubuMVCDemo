@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using FubuCore.Logging;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
 
-namespace FubuCoreDemo.MVC
+namespace FubuCoreDemo.Transport.Behaviors
 {
     public class ThirdLoggingBehavior : WrappingBehavior
     {
@@ -21,7 +18,7 @@ namespace FubuCoreDemo.MVC
 
         protected override void invoke(Action action)
         {
-            _logger.Debug($"Running ThirdLoggingBehavior");
+            _logger.Debug($"Entered ThirdLoggingBehavior");
             action();
         }
     }

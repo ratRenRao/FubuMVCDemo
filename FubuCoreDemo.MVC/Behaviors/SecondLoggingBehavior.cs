@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FubuCore.Logging;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
 
-namespace FubuCoreDemo.MVC
+namespace FubuCoreDemo.MVC.Behaviors
 {
     public class SecondLoggingBehavior : WrappingBehavior
     {

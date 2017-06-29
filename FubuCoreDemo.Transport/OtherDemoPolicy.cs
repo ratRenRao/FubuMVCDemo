@@ -1,4 +1,5 @@
-﻿using FubuMVC.Core;
+﻿using FubuCoreDemo.Transport.Behaviors;
+using FubuMVC.Core;
 using FubuMVC.Core.Registration;
 
 namespace FubuCoreDemo.Transport

@@ -1,6 +1,8 @@
 ﻿using FubuCoreDemo.Transport;
 using FubuMVC.Core;
 using FubuMVC.Core.Registration;
+using SecondLoggingBehavior = FubuCoreDemo.MVC.Behaviors.SecondLoggingBehavior;
+using ThirdLoggingBehavior = FubuCoreDemo.MVC.Behaviors.ThirdLoggingBehavior;
 
 namespace FubuCoreDemo.MVC
 {

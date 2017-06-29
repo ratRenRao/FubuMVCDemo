@@ -3,7 +3,7 @@ using FubuCore.Logging;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
 
-namespace FubuCoreDemo.Transport
+namespace FubuCoreDemo.MVC.Behaviors
 {
     public class FirstLoggingBehavior : WrappingBehavior
     {
@@ -18,7 +18,7 @@ namespace FubuCoreDemo.Transport
 
         protected override void invoke(Action action)
         {
-            _logger.Debug($"Entered LogginBehavior");
+            _logger.Debug($"Running FirstLoggingBehavior");
             action();
         }
     }

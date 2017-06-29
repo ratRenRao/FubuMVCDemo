@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using FubuMVC.Core.Behaviors;
 
-namespace FubuCoreDemo.Transport
+namespace FubuCoreDemo.Transport.Behaviors
 {
     public class StopwatchBehavior : IActionBehavior
     {

@@ -1,4 +1,5 @@
-﻿using FubuMVC.Core;
+﻿using FubuCoreDemo.Transport.Behaviors;
+using FubuMVC.Core;
 using FubuMVC.Core.Resources.Conneg;
 using FubuMVC.Core.ServiceBus.Configuration;
 using NLog;
@@ -12,9 +13,11 @@ namespace FubuCoreDemo.Transport
             Policies.Global.Add<DemoPolicy>();
             Policies.Global.Add<OtherDemoPolicy>();
 
+            Services.For<IFakeService>().Use<FakeService>();
+
             Policies.Global.Reorder(x =>
             {
-                x.ThisWrapperBeBefore<FirstLoggingBehavior>();
+                x.ThisWrapperBeBefore<SecondLoggingBehavior>();
                 x.ThisNodeMustBeAfter<InputNode>();
             });
 

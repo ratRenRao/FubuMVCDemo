@@ -1,4 +1,5 @@
-﻿using FubuMVC.Core;
+﻿using FubuCoreDemo.MVC.Behaviors;
+using FubuMVC.Core;
 using FubuMVC.Core.Registration;
 using FubuMVC.Core.Registration.Nodes;
 

@@ -7,11 +7,11 @@ namespace FubuCoreDemo.Transport
     {
         public PongApp()
         {
-            Policies.Global.Add<DemoPolicy>();
-            Policies.Local.Add<DemoPolicy>();
+            //Policies.Global.Add<DemoPolicy>();
+            //Policies.Local.Add<DemoPolicy>();
 
-            Services.AddService<IFakeService, FakeService>();
-            Services.AddService<ILogger>(LogManager.GetCurrentClassLogger());
+            //Services.AddService<IFakeService, FakeService>();
+            //Services.AddService<ILogger>(LogManager.GetCurrentClassLogger());
 
             Channel(x => x.Ponger).ReadIncoming();
         }

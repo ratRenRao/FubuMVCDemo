@@ -42,20 +42,6 @@ namespace FubuCoreDemo.Testing
         }
 
         [Fact]
-        public async Task behavior_for_LoggingPolicy_functions()
-        {
-            var pinger = FubuRuntime.For<PingApp>();
-            var ponger = FubuRuntime.For<PongApp>();
-
-            var bus = pinger.Get<IServiceBus>();
-
-            var pong = await bus.Request<PongMessage>(new PingMessage());
-
-            pinger.Dispose();
-            ponger.Dispose();
-        }
-
-        [Fact]
         public async Task data_is_populated_into_handler_from_csv()
         {
             var localizationDemo = new LocalizationDemo();

@@ -3,14 +3,14 @@ using FubuCore.Logging;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
 
-namespace FubuCoreDemo.Transport
+namespace FubuCoreDemo.MVC.Behaviors
 {
-    public class SecondLoggingBehavior : WrappingBehavior
+    public class ThirdLoggingBehavior : WrappingBehavior
     {
         private readonly ICurrentChain _chain;
         private readonly ILogger _logger;
 
-        public SecondLoggingBehavior(ICurrentChain chain, ILogger logger)
+        public ThirdLoggingBehavior(ICurrentChain chain, ILogger logger)
         {
             _chain = chain;
             _logger = logger;
@@ -18,7 +18,7 @@ namespace FubuCoreDemo.Transport
 
         protected override void invoke(Action action)
         {
-            _logger.Debug($"Entered SecondLoggingBehavior");
+            _logger.Debug($"Running ThirdLoggingBehavior");
             action();
         }
     }
